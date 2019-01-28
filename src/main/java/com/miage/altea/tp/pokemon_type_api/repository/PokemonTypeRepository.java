@@ -1,6 +1,6 @@
-package com.miage.altea.tp.pokemon_type_api.repository.repository;
+package com.miage.altea.tp.pokemon_type_api.repository;
 
-import com.miage.altea.tp.pokemon_type_api.repository.bo.PokemonType;
+import com.miage.altea.tp.pokemon_type_api.bo.PokemonType;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.miage.altea.tp.pokemon_type_api.repository.bo;
+package com.miage.altea.tp.pokemon_type_api.bo;
 
 import lombok.Data;
 
