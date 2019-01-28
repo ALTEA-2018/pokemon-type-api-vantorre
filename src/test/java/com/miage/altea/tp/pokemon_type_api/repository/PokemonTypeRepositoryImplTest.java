@@ -1,5 +1,7 @@
 package com.miage.altea.tp.pokemon_type_api.repository;
 
+import com.miage.altea.tp.pokemon_type_api.service.PokemonTypeService;
+import com.miage.altea.tp.pokemon_type_api.service.PokemonTypeServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -13,7 +15,7 @@ class PokemonTypeRepositoryImplTest {
     @Test
     void applicationContext_shouldLoadPokemonRepository(){
 
-        var context = new AnnotationConfigApplicationContext("com.miage.altea.tp.pokemon_type_api.com.miage.altea.tp.pokemon_type_api.repository");
+        var context = new AnnotationConfigApplicationContext("com.miage.altea.tp.pokemon_type_api.repository");
         var repoByName = context.getBean("pokemonTypeRepositoryImpl");
         var repoByClass = context.getBean(PokemonTypeRepository.class);
 
@@ -59,6 +61,24 @@ class PokemonTypeRepositoryImplTest {
         var pokemons = repository.findAllPokemonType();
         assertNotNull(pokemons);
         assertEquals(151, pokemons.size());
+    }
+
+    @Test
+    void applicationContext_shouldLoadPokemonTypeService(){
+        var context = new AnnotationConfigApplicationContext(PokemonTypeServiceImpl.class, PokemonTypeRepositoryImpl.class);
+        var serviceByName = context.getBean("pokemonTypeServiceImpl");
+        var serviceByClass = context.getBean(PokemonTypeService.class);
+
+        assertEquals(serviceByName, serviceByClass);
+        assertNotNull(serviceByName);
+        assertNotNull(serviceByClass);
+    }
+
+    @Test
+    void pokemonTypeRepository_shouldBeAutowired_withSpring(){
+        var context = new AnnotationConfigApplicationContext(PokemonTypeServiceImpl.class, PokemonTypeRepositoryImpl.class);
+        var service = context.getBean(PokemonTypeServiceImpl.class);
+        assertNotNull(service.pokemonTypeRepository);
     }
 
 }
