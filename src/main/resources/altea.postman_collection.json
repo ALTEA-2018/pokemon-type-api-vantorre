@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "6cf0ed4f-d58e-44cd-999e-1d6c31895687",
+		"name": "altea",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bddba328-c174-4029-b5eb-db59133bb32e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Bulbasaur\", function () {",
+							"    var bulbasaur = pm.response.json();",
+							"    pm.expect(bulbasaur.id).to.eq(1);",
+							"    pm.expect(bulbasaur.name).to.eq(\"Bulbasaur\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/pokemon-types/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pokemon-types",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/pokemon-types/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "322f4085-fddc-4e37-9290-6f753d1381a5",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Bulbasaur\", function () {",
+							"    var bulbasaur = pm.response.json();",
+							"    pm.expect(bulbasaur.id).to.eq(1);",
+							"    pm.expect(bulbasaur.name).to.eq(\"Bulbizarre\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "fr"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/pokemon-types/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pokemon-types",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/pokemon-types",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dc833e2e-9763-4a27-85f7-aa1a8632aa62",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"all pokemon types\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.eq(151);",
+							"});",
+							"",
+							"pm.test(\"Bulbasaur\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].name).to.eq(\"Bulbasaur\");",
+							"});",
+							"",
+							"pm.test(\"Ivysaur\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[1].name).to.eq(\"Ivysaur\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/pokemon-types/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pokemon-types",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/pokemon-types FR",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6aa9ed67-e44d-40c4-9ed0-10a754c41c05",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"all pokemon types\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.eq(151);",
+							"});",
+							"",
+							"pm.test(\"bulbizarre\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].name).to.eq(\"Bulbizarre\");",
+							"});",
+							"",
+							"pm.test(\"Herbizarre\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[1].name).to.eq(\"Herbizarre\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "fr"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/pokemon-types/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pokemon-types",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
