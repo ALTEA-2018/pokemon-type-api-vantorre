@@ -25,13 +25,13 @@ class PokemonTypeController {
     }
 
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "")
     public List<PokemonType> getAllPokemonTypes() {
         return pokemonTypeService.getAllPokemonTypes();
     }
 
 
-    @GetMapping(path = "/", params = "name")
+    @GetMapping(path = "", params = "name")
     public PokemonType getPokemonByName(@RequestParam(value = "name") String name) {
         return pokemonTypeService.getPokemonTypeByName(name);
     }
