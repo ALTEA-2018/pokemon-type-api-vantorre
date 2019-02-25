@@ -16,6 +16,7 @@ public class PokemonTypeServiceImpl implements PokemonTypeService{
     @Autowired
     public PokemonTypeRepository pokemonTypeRepository;
 
+    @Autowired
     private TranslationRepository translationRepository;
 
     @Override

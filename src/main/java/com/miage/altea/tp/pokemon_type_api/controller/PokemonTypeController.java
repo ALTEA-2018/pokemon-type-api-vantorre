@@ -25,7 +25,7 @@ class PokemonTypeController {
     }
 
 
-    @GetMapping(value = "")
+    @GetMapping(value = "/")
     public List<PokemonType> getAllPokemonTypes() {
         return pokemonTypeService.getAllPokemonTypes();
     }

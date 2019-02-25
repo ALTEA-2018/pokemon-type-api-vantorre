@@ -65,7 +65,7 @@ class PokemonTypeRepositoryImplTest {
 
     @Test
     void applicationContext_shouldLoadPokemonTypeService(){
-        var context = new AnnotationConfigApplicationContext(PokemonTypeServiceImpl.class, PokemonTypeRepositoryImpl.class);
+        var context = new AnnotationConfigApplicationContext(PokemonTypeServiceImpl.class, PokemonTypeRepositoryImpl.class, TranslationRepositoryImpl.class);
         var serviceByName = context.getBean("pokemonTypeServiceImpl");
         var serviceByClass = context.getBean(PokemonTypeService.class);
 
@@ -76,7 +76,7 @@ class PokemonTypeRepositoryImplTest {
 
     @Test
     void pokemonTypeRepository_shouldBeAutowired_withSpring(){
-        var context = new AnnotationConfigApplicationContext(PokemonTypeServiceImpl.class, PokemonTypeRepositoryImpl.class);
+        var context = new AnnotationConfigApplicationContext(PokemonTypeServiceImpl.class, PokemonTypeRepositoryImpl.class, TranslationRepositoryImpl.class);
         var service = context.getBean(PokemonTypeServiceImpl.class);
         assertNotNull(service.pokemonTypeRepository);
     }
