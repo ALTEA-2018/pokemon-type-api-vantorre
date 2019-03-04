@@ -5,10 +5,11 @@ import com.miage.altea.tp.pokemon_type_api.repository.PokemonTypeRepository;
 import com.miage.altea.tp.pokemon_type_api.repository.TranslationRepository;
 
 import java.util.List;
+import java.util.Locale;
 
 public interface PokemonTypeService {
     PokemonType getPokemonType(int id);
-    List<PokemonType> getAllPokemonTypes();
+    List<PokemonType> getAllPokemonTypes(Locale locale);
 
     PokemonType getPokemonTypeByName(String name);
 

@@ -38,7 +38,7 @@ class PokemonTypeServiceImplTest {
         var translationRepository = mock(TranslationRepository.class);
         var pokemonTypeService = new PokemonTypeServiceImpl(pokemonTypeRepository, translationRepository);
 
-        pokemonTypeService.getAllPokemonTypes();
+        pokemonTypeService.getAllPokemonTypes(null);
 
         verify(pokemonTypeRepository).findAllPokemonType();
     }
@@ -101,7 +101,7 @@ class PokemonTypeServiceImplTest {
 
         LocaleContextHolder.setLocale(Locale.FRENCH);
 
-        var pokemonTypes = pokemonTypeService.getAllPokemonTypes();
+        var pokemonTypes = pokemonTypeService.getAllPokemonTypes(null);
 
         assertEquals("Pikachu-FRENCH", pokemonTypes.get(0).getName());
         assertEquals("Raichu-FRENCH", pokemonTypes.get(1).getName());

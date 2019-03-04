@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Locale;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -33,9 +35,9 @@ class PokemonTypeControllerTest {
         var service = mock(PokemonTypeService.class);
         var controller = new PokemonTypeController(service);
 
-        controller.getAllPokemonTypes();
+        controller.getAllPokemonTypes(null);
 
-        verify(service).getAllPokemonTypes();
+        verify(service).getAllPokemonTypes(null);
     }
 
     @Test
@@ -62,7 +64,7 @@ class PokemonTypeControllerTest {
     @Test
     void getAllPokemonTypes_shouldBeAnnotated() throws NoSuchMethodException {
         var getAllPokemonTypes =
-                PokemonTypeController.class.getDeclaredMethod("getAllPokemonTypes");
+                PokemonTypeController.class.getDeclaredMethod("getAllPokemonTypes", Locale.class);
         var getMapping = getAllPokemonTypes.getAnnotation(GetMapping.class);
 
         assertNotNull(getMapping);
